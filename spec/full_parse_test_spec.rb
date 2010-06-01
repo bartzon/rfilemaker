@@ -21,6 +21,7 @@ describe RFilemaker do
     			</COL>
     			<COL>
     				<DATA>03/02/10</DATA>
+    				<DATA>05/02/10</DATA>
     			</COL>
     		</ROW>
     		<ROW MODID="89" RECORDID="78">
@@ -29,6 +30,7 @@ describe RFilemaker do
     			</COL>
     			<COL>
     				<DATA>04/05/09</DATA>
+    				<DATA>10/05/09</DATA>
     			</COL>
     		</ROW>
     	</RESULTSET>
@@ -41,14 +43,14 @@ describe RFilemaker do
   describe "records" do
     it "should parse the first record correctly" do
       r = @result[0]
-      r.should == { 'Name' => 'Joe Smith', 'Date joined' => Date.new(2010,3,2) }
+      r.should == { 'Name' => 'Joe Smith', 'Date joined' => [Date.new(2010,3,2), Date.new(2010,5,2)] }
       r.mod_id.should    == 47
       r.record_id.should == 34
     end
     
     it "should parse the second record correctly" do
       r = @result[1]
-      r.should == { 'Name' => 'Susan Jones', 'Date joined' => Date.new(2009,4,5) }
+      r.should == { 'Name' => 'Susan Jones', 'Date joined' => [Date.new(2009,4,5), Date.new(2009,10,5)] }
       r.mod_id.should    == 89
       r.record_id.should == 78
     end
