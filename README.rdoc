@@ -19,6 +19,50 @@ To parse a Filemaker Pro export file named 'export.xml', use:
 This returns an array of hashes, each of which represent a row in your Filemaker database.
 Fields are automatically converted to their ruby types. 
 
+For instance, parsing the following XML export:
+
+	<FMPXMLRESULT xmlns="http://www.filemaker.com/fmpxmlresult">
+		<ERRORCODE>0</ERRORCODE> 
+		<PRODUCT BUILD="5/23/2002" NAME="FileMaker Pro"
+		VERSION="7.0"/> 
+		<DATABASE DATEFORMAT="MM/dd/yy" LAYOUT="summary"
+		NAME="Employees.fp7" RECORDS="23" TIMEFORMAT="hh:mm:ss"/>
+		<METADATA>
+			<FIELD EMPTYOK="NO" MAXREPEAT="1" NAME="First Name" TYPE="TEXT"/>
+			<FIELD EMPTYOK="NO" MAXREPEAT="1" NAME="Last Name" TYPE="TEXT"/>
+			<FIELD EMPTYOK="YES" MAXREPEAT="1" NAME="Department" TYPE="TEXT"/>
+		</METADATA>
+		<RESULTSET FOUND="2">
+			<ROW MODID="47" RECORDID="34"> 
+				<COL>
+					<DATA>Joe</DATA>
+				</COL>
+				<COL>
+					<DATA>Smith</DATA>
+				</COL>
+				<COL>
+					<DATA>Engineering</DATA>
+				</COL>
+			</ROW>
+			<ROW MODID="89" RECORDID="78">
+				<COL> 
+					<DATA>Susan</DATA>
+				</COL>
+				<COL>
+					<DATA>Jones</DATA>
+				</COL>
+				<COL>
+					<DATA>Marketing</DATA>
+				</COL>
+			</ROW>
+		</RESULTSET>
+	</FMPXMLRESULT>
+
+gives this Ruby hash:
+
+	[{"Last Name"=>"Smith", "Department"=>"Engineering", "First Name"=>"Joe"},
+	 	{"Last Name"=>"Jones", "Department"=>"Marketing", "First Name"=>"Susan"}]
+	
 == Note on Patches/Pull Requests
  
 * Fork the project.
