@@ -1,5 +1,10 @@
 module RFilemaker
   class ResultSet < Array
+    def self.parse_date_format(string)
+      string = string.gsub(/yyyy|yy/, '%y').gsub(/mm|MM|M/, '%m').gsub(/dd|d/, '%d')
+      string.gsub(/hh|h/, '%I').gsub(/kk|k/, '%H').gsub(/mm/, '%M').gsub(/ss/, '%S').gsub(/a/, '%p')
+    end
+
     attr_reader :fields, :rows
     attr_reader :date_format, :time_format
     
@@ -8,14 +13,14 @@ module RFilemaker
       @rows   = extract_rows(doc)
 
       d = doc.css('DATABASE')
-      @date_format = parse_date_format(d.attribute('DATEFORMAT').to_s)
-      @time_format = parse_date_format(d.attribute('TIMEFORMAT').to_s)
+      @date_format = ResultSet.parse_date_format(d.attribute('DATEFORMAT').to_s)
+      @time_format = ResultSet.parse_date_format(d.attribute('TIMEFORMAT').to_s)
             
       @rows.each do |row|
         self << Record.new(row, fields)
       end
     end
-    
+
     private
       def extract_fields(doc)
         doc.css('METADATA FIELD').collect do |xml|
@@ -27,10 +32,6 @@ module RFilemaker
         doc.css('RESULTSET ROW').collect do |xml|
           Row.new(xml)
         end
-      end
-      
-      def parse_date_format(string)
-        string.downcase.gsub(/yy/, '%y').gsub(/mm/, '%m').gsub(/dd/, '%d')
       end
   end
 end

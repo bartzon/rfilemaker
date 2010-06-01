@@ -30,7 +30,7 @@ describe RFilemaker::Field do
     end
     
     it "should coerce a time correctly" do
-      DateTime.should_receive(:strptime).with('foo', 'time_format').and_return 't'
+      DateTime.should_receive(:strptime).with('1/1/-4712 foo', 'time_format').and_return 't'
       @f.stub!(:type).and_return :time
       @f.coerce('foo').should == 't'
     end

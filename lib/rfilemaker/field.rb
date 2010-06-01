@@ -13,7 +13,7 @@ module RFilemaker
         when :date
           Date.strptime(value, @result_set.date_format)
         when :time
-          DateTime.strptime(value, @result_set.time_format)
+          DateTime.strptime("1/1/-4712 #{value}", @result_set.time_format)
         when :timestamp
           DateTime.strptime(value, @result_set.time_format)
         when :number

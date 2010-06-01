@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
      "lib/rfilemaker/result_set.rb",
      "lib/rfilemaker/row.rb",
      "rfilemaker.gemspec",
+     "spec/full_parse_test_spec.rb",
+     "spec/rfilemaker/field_spec.rb",
      "spec/rfilemaker_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -39,7 +41,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Ruby library to parse Filemaker Pro FMPXMLRESULT files}
   s.test_files = [
-    "spec/rfilemaker_spec.rb",
+    "spec/full_parse_test_spec.rb",
+     "spec/rfilemaker/field_spec.rb",
+     "spec/rfilemaker_spec.rb",
      "spec/spec_helper.rb"
   ]
 
