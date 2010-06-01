@@ -1,6 +1,23 @@
 = rfilemaker
 
-Description goes here.
+Heavily inspired by lardawge-rfm, see http://github.com/lardawge/rfm.
+
+This library parses a Filemaker Pro FMPXMLRESULT type document, nothing more, nothing less
+
+== Installation
+
+Easy, just use:
+	
+	gem install rfilemaker
+	
+== Usage
+
+To parse a Filemaker Pro export file named 'export.xml', use:
+
+	RFilemaker.parse('export.xml')
+	
+This returns an array of hashes, each of which represent a row in your Filemaker database.
+Fields are automatically converted to their ruby types. 
 
 == Note on Patches/Pull Requests
  
@@ -11,7 +28,3 @@ Description goes here.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
-
-== Copyright
-
-Copyright (c) 2010 Bart Zonneveld. See LICENSE for details.
