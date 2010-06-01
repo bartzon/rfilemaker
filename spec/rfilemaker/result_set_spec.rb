@@ -26,6 +26,10 @@ describe RFilemaker::ResultSet do
       it "should parse 'mm/dd/yy' correctly" do
         parse('mm/d/yy').should == '%m/%d/%y'
       end
+      
+      it "should parse 'D-m-yyyy' correctly" do
+        parse('D-m-yyyy').should == '%d-%m-%y'
+      end
     end
     
     describe "time formats" do

@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "rfilemaker.gemspec",
      "spec/full_parse_test_spec.rb",
      "spec/rfilemaker/field_spec.rb",
+     "spec/rfilemaker/result_set_spec.rb",
      "spec/rfilemaker_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -43,6 +44,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/full_parse_test_spec.rb",
      "spec/rfilemaker/field_spec.rb",
+     "spec/rfilemaker/result_set_spec.rb",
      "spec/rfilemaker_spec.rb",
      "spec/spec_helper.rb"
   ]

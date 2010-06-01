@@ -1,7 +1,7 @@
 module RFilemaker
   class ResultSet < Array
     def self.parse_date_format(string)
-      string = string.gsub(/yyyy|yy/, '%y').gsub(/mm|MM|M/, '%m').gsub(/dd|d/, '%d')
+      string = string.gsub(/yyyy|yy/, '%y').gsub(/mm|m|MM|M/, '%m').gsub(/dd|d|DD|D/, '%d')
       string.gsub(/hh|h/, '%I').gsub(/kk|k/, '%H').gsub(/mm/, '%M').gsub(/ss/, '%S').gsub(/a/, '%p')
     end
 
