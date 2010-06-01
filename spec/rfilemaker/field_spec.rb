@@ -8,6 +8,14 @@ describe RFilemaker::Field do
       @f = RFilemaker::Field.new(x, rs)
     end
     
+    it "should coerce nil correctly" do
+      @f.coerce(nil).should be_nil
+    end
+    
+    it "should coerce '' correctly" do
+      @f.coerce('').should be_nil
+    end
+    
     it "should coerce a string correctly" do
       @f.stub!(:type).and_return :string
       @f.coerce('foo').should == 'foo'
