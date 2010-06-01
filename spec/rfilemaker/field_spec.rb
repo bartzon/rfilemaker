@@ -21,9 +21,14 @@ describe RFilemaker::Field do
       @f.coerce('foo').should == 'foo'
     end
     
-    it "should coerce a float correctly" do
+    it "should coerce a float with . correctly" do
       @f.stub!(:type).and_return :number
       @f.coerce('10.45').should == 10.45
+    end
+
+    it "should coerce a float with , correctly" do
+      @f.stub!(:type).and_return :number
+      @f.coerce('10,45').should == 10.45
     end
 
     it "should coerce an int correctly" do

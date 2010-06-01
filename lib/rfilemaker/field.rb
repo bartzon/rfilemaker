@@ -20,7 +20,13 @@ module RFilemaker
         when :timestamp
           DateTime.strptime(value, @result_set.time_format) unless @empty_ok
         when :number
-          value.include?('.') ? value.to_f : value.to_i unless @empty_ok
+          if value.include?('.')
+            value.to_f
+          elsif value.include?(',')
+            value.gsub(/,/, '.').to_f
+          else
+            value.to_i
+          end
         else
           value.to_s
       end
