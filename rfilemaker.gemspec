@@ -24,6 +24,11 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rfilemaker.rb",
+     "lib/rfilemaker/field.rb",
+     "lib/rfilemaker/record.rb",
+     "lib/rfilemaker/result_set.rb",
+     "lib/rfilemaker/row.rb",
+     "rfilemaker.gemspec",
      "spec/rfilemaker_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -44,11 +49,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_development_dependency(%q<nokogiri>, [">= 1.4.2"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<nokogiri>, [">= 1.4.2"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<nokogiri>, [">= 1.4.2"])
   end
 end
 

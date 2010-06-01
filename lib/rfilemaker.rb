@@ -1,9 +1,9 @@
 require 'nokogiri'
 
 module RFilemaker
-  def self.parse(xml)
-    doc = Nokogiri::XML(xml)
-    RFilemaker::ResultSet.new(doc)
+  def self.parse(string)
+    doc = Nokogiri::XML.parse(string)
+    ResultSet.new(doc)
   end
   
   autoload :ResultSet,  'rfilemaker/result_set'
