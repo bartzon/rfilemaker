@@ -17,6 +17,8 @@ module RFilemaker
           self[field.name] = field.coerce(data)
         end
       end
+      
+      freeze
     end
   end
 end
