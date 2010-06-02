@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bart Zonneveld"]
-  s.date = %q{2010-06-01}
+  s.date = %q{2010-06-02}
   s.description = %q{Ruby library to parse Filemaker Pro FMPXMLRESULT files}
   s.email = %q{loop@superinfinite.com}
   s.extra_rdoc_files = [
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "rfilemaker.gemspec",
      "spec/full_parse_test_spec.rb",
      "spec/rfilemaker/field_spec.rb",
+     "spec/rfilemaker/record_spec.rb",
      "spec/rfilemaker/result_set_spec.rb",
      "spec/rfilemaker_spec.rb",
      "spec/spec.opts",
@@ -44,6 +45,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/full_parse_test_spec.rb",
      "spec/rfilemaker/field_spec.rb",
+     "spec/rfilemaker/record_spec.rb",
      "spec/rfilemaker/result_set_spec.rb",
      "spec/rfilemaker_spec.rb",
      "spec/spec_helper.rb"
