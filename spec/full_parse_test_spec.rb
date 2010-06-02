@@ -43,14 +43,14 @@ describe RFilemaker do
   describe "records" do
     it "should parse the first record correctly" do
       r = @result[0]
-      r.should == { 'Name' => 'Joe Smith', 'Date joined' => [Date.new(2010,3,2), Date.new(2010,5,2)] }
+      r.should == { 'name' => 'Joe Smith', 'date joined' => [Date.new(2010,3,2), Date.new(2010,5,2)] }
       r.mod_id.should    == 47
       r.record_id.should == 34
     end
     
     it "should parse the second record correctly" do
       r = @result[1]
-      r.should == { 'Name' => 'Susan Jones', 'Date joined' => [Date.new(2009,4,5), Date.new(2009,10,5)] }
+      r.should == { 'name' => 'Susan Jones', 'date joined' => [Date.new(2009,4,5), Date.new(2009,10,5)] }
       r.mod_id.should    == 89
       r.record_id.should == 78
     end

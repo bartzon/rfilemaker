@@ -1,5 +1,5 @@
 module RFilemaker
-  class Record < Hash
+  class Record < SpecialHash
     attr_reader :record_id, :mod_id
     
     def initialize(row, fields)

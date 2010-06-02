@@ -24,4 +24,23 @@ describe RFilemaker do
   it "should return the resultset" do
     parse.should == 'result set'
   end
+  
+  describe "'special' hash" do
+    before(:each) do
+      @h = RFilemaker::SpecialHash.new
+      @h['Foo BAR'] = 'baz'
+    end
+    
+    it "should lookup keys as string" do
+      @h['Foo BAR'].should == 'baz'
+    end
+    
+    it "should lookup keys as lowercase strings" do
+      @h['foo bar'].should == 'baz'
+    end
+    
+    it "should lookup keys as symbol" do
+      @h[:fOO_bar].should == 'baz'
+    end
+  end
 end
