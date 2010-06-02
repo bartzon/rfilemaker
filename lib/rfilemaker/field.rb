@@ -1,6 +1,9 @@
 module RFilemaker
   class Field
-    attr_reader :name, :type
+    # Name of the field
+    attr_reader :name
+    # Type of the field as symbol
+    attr_reader :type
     
     def initialize(xml, result_set)
       @name       = xml['NAME']
@@ -8,7 +11,14 @@ module RFilemaker
       @empty_ok   = xml['EMPTYOK'] == 'YES'
       @result_set = result_set
     end
-    
+
+    # Coerce a value to the Ruby equivalent of the Filemaker Type
+    #
+    # * 'DATE' gets converted to Date
+    # * 'TIME' gets converted to DateTime
+    # * 'TIMESTAMP' gets converted to DateTime
+    # * 'NUMBER' gets converted to float or integer
+    # * everything else gets converted to a string
     def coerce(value)
       return nil if value.nil? || value == ''
       

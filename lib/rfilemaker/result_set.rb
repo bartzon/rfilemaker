@@ -1,5 +1,6 @@
 module RFilemaker
   class ResultSet < Array
+    # Parse a Filemaker date format to something strptime understands
     def self.parse_date_format(string)
       string = string.gsub(/yyyy|yy/, '%y').gsub(/mm|m|MM|M/, '%m').gsub(/dd|d|DD|D/, '%d')
       string.gsub(/hh|h/, '%I').gsub(/kk|k/, '%H').gsub(/mm/, '%M').gsub(/ss/, '%S').gsub(/a/, '%p')
@@ -8,6 +9,8 @@ module RFilemaker
     attr_reader :fields, :rows
     attr_reader :date_format, :time_format
     
+    # Generates a new ResultSet (or plain Ruby Array) for the given XML document
+    # Items in the ResultSet are Hashes, representing rows in the Filemaker export
     def initialize(doc)
       @fields = extract_fields(doc)
       @rows   = extract_rows(doc)
@@ -21,7 +24,7 @@ module RFilemaker
       end
     end
 
-    private
+    private # :nodoc: all
       def extract_fields(doc)
         doc.css('METADATA FIELD').collect do |xml|
           Field.new(xml, self)

@@ -1,7 +1,7 @@
 require 'nokogiri'
 
 module RFilemaker
-  class SpecialHash < Hash
+  class SpecialHash < Hash # :nodoc: all
     def []=(key, value)
       super(key.downcase, value)
     end
@@ -11,6 +11,9 @@ module RFilemaker
     end
   end
   
+  # Parse a FMPXMLRESULT string into an Array
+  #
+  # Each element in the Array is a Hash, representing a row in the imported XML
   def self.parse(string)
     doc = Nokogiri::XML.parse(string)
     ResultSet.new(doc)

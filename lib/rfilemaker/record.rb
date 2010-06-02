@@ -1,6 +1,11 @@
 module RFilemaker
+  # Represents a Row in the Filemaker database, as a plain Hash
   class Record < SpecialHash
-    attr_reader :record_id, :mod_id
+    # Record id from Filemaker
+    attr_reader :record_id
+    
+    # Modification id from Filemaker
+    attr_reader :mod_id
     
     def initialize(row, fields)
       @record_id = row[:record_id]

@@ -1,5 +1,5 @@
 module RFilemaker
-  class Row < Hash
+  class Row < Hash # :nodoc: all
     def initialize(xml)
       self[:record_id] = xml['RECORDID'].to_i
       self[:mod_id]    = xml['MODID'].to_i
