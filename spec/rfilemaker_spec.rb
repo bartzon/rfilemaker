@@ -38,9 +38,5 @@ describe RFilemaker do
     it "should lookup keys as lowercase strings" do
       @h['foo bar'].should == 'baz'
     end
-    
-    it "should lookup keys as symbol" do
-      @h[:fOO_bar].should == 'baz'
-    end
   end
 end

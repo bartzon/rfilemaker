@@ -7,7 +7,7 @@ module RFilemaker
     end
     
     def [](key)
-      super(key.to_s.downcase.gsub('_', ' '))
+      super(key.to_s.downcase)
     end
   end
   
